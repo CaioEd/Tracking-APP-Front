@@ -86,56 +86,56 @@ export function CreateNewRoute() {
     <>
       <Header />
 
-      <div className="flex flex-1 w-full h-full">
-        <div className="w-1/3 p-4 h-full">
-          <h1 className="text-3xl text-contrast mb-2">Nova rota</h1>
+      <div className="flex flex-col h-screen"> 
+        <div className="flex flex-1"> 
+          <div className="w-1/3 p-4 overflow-auto"> 
+            <h1 className="text-3xl text-contrast mb-2">Nova rota</h1>
 
-            <div className="mt-4 p-4 border rounded text-contrast">              
+            <div className="mt-4 p-4 border rounded text-contrast bg-blue-800 text-white">              
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                   <div className='mr-8'>
-                      <FormField
-                          control={form.control}
-                          name='start_location'
-                          render={({ field }) => (
-                              <FormItem>
-                                  <FormLabel>Partida</FormLabel>
-                                  <Input placeholder='Localização de partida' {...field} />
-                                  <FormMessage />
-                              </FormItem>
-                          )}
-                      />
-                    </div>
+                    <FormField
+                      control={form.control}
+                      name='start_location'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Partida</FormLabel>
+                          <Input placeholder='Localização de partida' {...field} />
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
-                    <div className='mr-8'>
-                      <FormField
-                          control={form.control}
-                          name='end_location'
-                          render={({ field }) => (
-                              <FormItem>
-                                  <FormLabel>Destino</FormLabel>
-                                  <Input placeholder='Localização de chegada' {...field} />
-                                  <FormMessage />
-                              </FormItem>
-                          )}
-                      />
-                    </div>
+                  <div className='mr-8'>
+                    <FormField
+                      control={form.control}
+                      name='end_location'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Destino</FormLabel>
+                          <Input placeholder='Localização de chegada' {...field} />
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
-                    <Button
-                      type="submit"
-                      className="font-bold p-2 rounded mt-4"
-                    >
-                      Adicionar rota
-                    </Button>
+                  <Button
+                    type="submit"
+                    className="font-bold p-2 rounded mt-4"
+                  >
+                    Adicionar rota
+                  </Button>
                 </form>
-                
               </Form>
             </div>
+          </div>
+          
+          <MapNewRoute directionsData={directionsData} />
+          
         </div>
-        <MapNewRoute directionsData={directionsData} />  
-        {/* <div className="w-2/3 h-full">
-          <p>Mapa</p>
-        </div> */}
       </div>
     </>
   );
